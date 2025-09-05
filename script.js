@@ -97,21 +97,20 @@ deleteBtn.textContent="delete" ;
 deleteBtn.addEventListener("click",()=>{
   let index = library.indexOf(this);
   if (index !== -1) {
-    library.splice(index, 1); // remove from array
-    displayLibrary();         // re-render books
+    library.splice(index, 1); 
+    displayLibrary();         
   }
 
 })
-// find this book in the array and remove it
 
 
-
-
-
-}
 
 card.append(title , author , nbpages,toggleBtn,deleteBtn) ; 
 books.appendChild(card) ; 
+
+}
+
+
 
 
 
@@ -132,6 +131,17 @@ forma.addEventListener("submit" ,(e)=>{
   forma.style.display="none" ; 
   createBook(title,author,nbpages,isread) ; 
   displayLibrary() ; 
+
+  let inp = document.querySelectorAll("input") ; 
+ inp.forEach(element => {
+  element.value ="" ; 
+
+  let ok =document.querySelector("#submit") ; 
+  ok.value ="submit"
+  
+ });
+  
+
 
   
 

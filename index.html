@@ -5,14 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bellic Library</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/dace84c964.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
   <script src="script.js" defer></script>
 
-  <h1>Bellic Library</h1>
+  <header>
+    <i class="fa-duotone fa-solid fa-book"></i>    
+    <h1>Bellic Library</h1>
+
+  </header>
   <main>
-    <button id="add">add a book</button>
+    <button id="add"><i  id="iconn"  class="fa-solid fa-plus"></i>add a book</button>
+
+
+
 
     <form action="" style="display: none;" >
       <label for="title">title : </label>
@@ -27,7 +35,7 @@
       <label for="isread">reades ? : </label>
       <input type="checkbox" name="" id="isread">
 
-      <input type="submit" name="" id="submit">
+      <input type="submit" name="submit" value="submit" id="submit">
 
       <button id="cancel">Cancel</button>
     </form>
