@@ -34,6 +34,19 @@ function refrechLibrary(){
   main.innerHTML=""
 }
 
+//the cancel button
+let cancel = document.querySelector("#cancel") ; 
+cancel.textContent="cancel"
+cancel.addEventListener("click" , ()=>{
+  forma.style.display="none" ;
+  let inp = document.querySelectorAll("input") ; 
+   inp.forEach(element => {
+    element.value="" ; 
+    element.checked=false
+    
+   });
+})
+
 Book.prototype.displayBook= function(){
   let card = document.createElement("div") ; 
   card.classList.add("cards") ; 
@@ -49,13 +62,61 @@ nbpages.textContent=this.nbpages ;
 let isread = document.createElement("p") ; 
 isread.textContent= this.isread ; 
 
-card.append(title , author , nbpages,isread) ; 
-books.appendChild(card) ; 
+/*creating the button of toggle */
+let toggleBtn = document.createElement("button") ; 
+toggleBtn.classList.add("toggleBtn") ; 
+if (this.isread ===true){
+  toggleBtn.style.backgroundColor="#A4D061"
+  toggleBtn.textContent="readed"
+}else {
+  toggleBtn.style.backgroundColor="rgba(231, 16, 16, 0.447)"
+  toggleBtn.textContent=" not readed"
+}
+
+toggleBtn.addEventListener("click" , ()=>{
+  //change toggle
+  if (this.isread===true){
+    this.isread = false ;
+  } else {
+    this.isread=true ; 
+  }
+  //change color
+  if (this.isread ===true){
+    toggleBtn.style.backgroundColor="#A4D061"
+    toggleBtn.textContent="readed"
+  }else {
+    toggleBtn.style.backgroundColor="rgba(231, 16, 16, 0.447)"
+    toggleBtn.textContent=" not readed"
+  }
+})
+
+//add delete button
+let deleteBtn = document.createElement("button") ; 
+deleteBtn.classList.add("deleteBtn") ; 
+deleteBtn.textContent="delete" ; 
+deleteBtn.addEventListener("click",()=>{
+  let index = library.indexOf(this);
+  if (index !== -1) {
+    library.splice(index, 1); // remove from array
+    displayLibrary();         // re-render books
+  }
+
+})
+// find this book in the array and remove it
+
+
+
+
 
 }
 
+card.append(title , author , nbpages,toggleBtn,deleteBtn) ; 
+books.appendChild(card) ; 
+
+
+
 // add the event listener t the add button : 
-let createBtn = document.querySelector("button") ; 
+let createBtn = document.querySelector("#add") ; 
 createBtn.addEventListener("click" , ()=> {
   //display the form : 
   forma.style.display="block" ; 

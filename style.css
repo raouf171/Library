@@ -89,9 +89,28 @@ form button:hover {
 }
 
 .books {
-  background-color: #ddd;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  margin: 27px 10px;
 
+}
+.cards{
+  border: #0f0e0e solid 1px;
+  padding: 20px 40px;
+  border-radius: 20px;
+  border-top: solid rgb(0, 0, 0) 10px;
+  background: linear-gradient(120deg,rgba(255, 246, 246, 0.865),rgba(165, 42, 42, 0.322));
+
+}
+.cards h3{
+  color: #92816baf;
+  color: #2c2c2c; 
+  text-align: left;
+
+}
+.toggleBtn {
+  padding: 5px 10px;
+  border-radius: 15px;
+  
 }
